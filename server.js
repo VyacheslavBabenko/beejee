@@ -28,7 +28,9 @@ app.use(
 app.use(
 	cors({
 		origin:
-			process.env.NODE_ENV === "production" ? false : "http://localhost:3000",
+			process.env.NODE_ENV === "production"
+				? process.env.FRONTEND_URL || "https://your-app.railway.app"
+				: "http://localhost:3000",
 		credentials: true,
 	})
 );
